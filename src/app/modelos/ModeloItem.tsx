@@ -3,21 +3,18 @@
 
 import DropDownActions from "@/components/DropDownActions";
 import { Icone } from "@/components/Icone";
-import { create } from "domain";
 import { toast } from "react-hot-toast";
 import { destroy } from "../actions/modelos/destroy";
+import { useRouter } from "next/navigation";
 
 
-interface ModeloItemProps{
-    modelo : {
-        id: number,
-        nome: string,
-        icone: string
-    }
+interface ModeloItemProps {
+    modelo: Modelo
 }
 export function ModeloItem({ modelo }: ModeloItemProps){
+    const router = useRouter()
 
-    function handleDelete(){
+    function handleDelete() {
         toast.promise(
             destroy(modelo.id),
             {
@@ -34,7 +31,10 @@ export function ModeloItem({ modelo }: ModeloItemProps){
                 <Icone nome={modelo.icone} />
                 <span className="text-[18px] font-medium">{modelo.nome}</span>
             </div>
-            <DropDownActions onDelete={handleDelete} />
+            <DropDownActions
+                onEdit={ () => router.push(`/modelos/${modelo.id}`) }
+                onDelete={handleDelete}
+            />
         </div>
     )
 

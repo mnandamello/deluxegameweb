@@ -1,10 +1,13 @@
 "use client"
 
 import { create } from "@/app/actions/modelos/create";
+import { icones } from "@/app/utils/Icones";
+import { Icone } from "@/components/Icone";
 import NavBar from "@/components/NavBar";
 import { SubmitButton } from "@/components/SubmitButton";
+import Link from "next/link";
 import { Button } from "@nextui-org/button";
-import { Input, Link } from "@nextui-org/react";
+import { Autocomplete, AutocompleteItem, Input } from "@nextui-org/react";
 
 import { useFormState } from "react-dom";
 
@@ -13,7 +16,8 @@ const initialState = {
 }
 
 
-export default function CadastrarModelo(){
+export default function CadastrarModelo() {
+    
     const [state, formAction] = useFormState(create, initialState)
     
     return ( 
@@ -26,10 +30,21 @@ export default function CadastrarModelo(){
                     key="nome"
                     label="Nome"
                     name="nome"
+                    variant="bordered"
                     labelPlacement={"outside"}
                     isInvalid={state?.message != ''}
                     errorMessage={state?.message}
                 />
+                <Autocomplete
+                    defaultItems={icones}
+                    label="Ícone"
+                    name="icone"
+                    variant="bordered"
+                    labelPlacement={"outside"}
+                    placeholder="procurar ícone"
+                >
+                    {(icone) => <AutocompleteItem key={icone.nome} startContent={<Icone nome={icone.nome} />}>{icone.nome}</AutocompleteItem>}
+                </Autocomplete>
                 <div className="flex justify-around mt-4">
                     <Link href="/modelos"><Button variant="bordered">Cancelar</Button></Link>
                     <SubmitButton></SubmitButton>

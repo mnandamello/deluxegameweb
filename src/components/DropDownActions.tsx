@@ -11,10 +11,11 @@ import { ChevronDown,Pencil,Trash } from 'lucide-react'
 import { MouseEventHandler } from 'react'
 
 interface DropDownActionsProps{
-  onDelete: MouseEventHandler
+  onDelete: MouseEventHandler,
+  onEdit: MouseEventHandler
 }
 
-export default function DropDownActions({onDelete}: DropDownActionsProps) {
+export default function DropDownActions({onDelete, onEdit}: DropDownActionsProps) {
   return (
     <Dropdown className="border-0 bg-customPink">
       <DropdownTrigger >
@@ -25,8 +26,8 @@ export default function DropDownActions({onDelete}: DropDownActionsProps) {
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="edit" startContent={<Pencil/>}>editar</DropdownItem>
-        <DropdownItem onClick={onDelete} startContent={<Trash />} key="delete" >
+      <DropdownItem onClick={onEdit} key="edit" startContent={<Pencil />} >editar</DropdownItem>
+      <DropdownItem onClick={onDelete} startContent={<Trash />} key="delete" >
           apagar
         </DropdownItem>
       </DropdownMenu>
