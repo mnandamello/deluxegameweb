@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 const kodchasan = Kodchasan({weight: "400", subsets: ["latin"]});
 
 export const metadata: Metadata = {
-  title: "Money Minder",
+  title: "DeluxeGames",
   description: "App de controle de est",
 };
 

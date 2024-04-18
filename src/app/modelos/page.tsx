@@ -2,7 +2,7 @@ import NavBar from "@/components/NavBar";
 import {Button} from "@nextui-org/button"
 import {ModeloItem} from "./ModeloItem"
 import Image from 'next/image'
-import Fundo from '../../../public/fundoModelo.jpeg';
+import Fundo from '../../../public/fundoModelo.png';
 import { Plus } from "lucide-react";
 import {getModelos} from '../actions/modelos/getModelos'
 import { Link } from "@nextui-org/react";
@@ -23,8 +23,8 @@ export default async function Modelos() {
   return ( 
     <main className="flex min-h-screen flex-col items-center">
       <div className="relative w-full">
-        <div className="absolute -z-10 w-full">
-        <Image src={Fundo} alt="aa" className="h-lvh w-screen" />
+        <div className="absolute -z-10 h-lvh w-screen ">
+        <Image src={Fundo} alt="aa" className="block h-lvh w-screen" />
 
         </div>
       </div>
