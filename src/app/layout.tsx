@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Kodchasan } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { Toaster } from "react-hot-toast";
 
 const kodchasan = Kodchasan({weight: "400", subsets: ["latin"]});
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="dark">
       <body className={kodchasan.className}>
         <Providers>
+        <Toaster position="bottom-right" />
           {children}
         </Providers>
       </body>

@@ -8,8 +8,13 @@ import {
     Button
 } from "@nextui-org/react";
 import { ChevronDown,Pencil,Trash } from 'lucide-react'
+import { MouseEventHandler } from 'react'
 
-export default function DropDownActions() {
+interface DropDownActionsProps{
+  onDelete: MouseEventHandler
+}
+
+export default function DropDownActions({onDelete}: DropDownActionsProps) {
   return (
     <Dropdown className="border-0 bg-customPink">
       <DropdownTrigger >
@@ -21,7 +26,9 @@ export default function DropDownActions() {
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem key="edit" startContent={<Pencil/>}>editar</DropdownItem>
-        <DropdownItem key="delete" startContent={<Trash/>}>apagar</DropdownItem>
+        <DropdownItem onClick={onDelete} startContent={<Trash />} key="delete" >
+          apagar
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
