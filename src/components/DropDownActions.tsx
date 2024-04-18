@@ -7,7 +7,7 @@ import {
     DropdownItem, 
     Button
 } from "@nextui-org/react";
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown,Pencil,Trash } from 'lucide-react'
 
 export default function DropDownActions() {
   return (
@@ -20,10 +20,8 @@ export default function DropDownActions() {
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="edit">editar</DropdownItem>
-        <DropdownItem key="delete" className="">
-          apagar
-        </DropdownItem>
+        <DropdownItem key="edit" startContent={<Pencil/>}>editar</DropdownItem>
+        <DropdownItem key="delete" startContent={<Trash/>}>apagar</DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );

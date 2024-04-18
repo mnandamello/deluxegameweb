@@ -1,34 +1,24 @@
 import NavBar from "@/components/NavBar";
-//import { CategoriaItem } from "./CategoriaItem"
-//import { Button } from "@nextui-org/button";
 import {Button} from "@nextui-org/button"
-import {CategoriaItem} from "./CategoriaItem"
+import {ModeloItem} from "./ModeloItem"
 import Image from 'next/image'
 import Fundo from '../../../public/fundoModelo.jpeg';
+import { Plus } from "lucide-react";
+import {getModelos} from '../actions/modelos/getModelos'
+import { Link } from "@nextui-org/react";
+
+interface Modelo{
+    id: number,
+    nome: string,
+    icone: string
+
+}
 
 
-export default function Modelos() {
+export default async function Modelos() {
 
-  const categorias = [
-    {
-      id: 1,
-      nome: "plystation",
-      icone: "gamepad"
-    },
-    
-    {
-      id: 2,
-      nome: "xbox",
-      icone: "joystick"
-    },
-    
-    {
-      id: 3,
-      nome: "computador",
-      icone: "swords"
-    },
-
-  ]
+  
+  const modelos: Modelo[] = await getModelos()
 
   return ( 
     <main className="flex min-h-screen flex-col items-center">
@@ -43,12 +33,15 @@ export default function Modelos() {
         
 
         <section className="flex flex-col gap-2 border-4 rounded-lg bg-costumFundo border-c100  min-w-[600px] mt-4 p-2">
-          <h2 className="text-2xl font-bold">Modelos cadastrados</h2>
+          <div className="flex justify-between">
+            <h2 className="text-2xl font-bold">Modelos cadastrados</h2>
+            <Link href="/modelos/new">
+            <Button color="primary" startContent={<Plus/>}>nova categoria</Button>
+            </Link>
+          </div>
           
-          <Button className="w-40 bg-customPink">nova categoria</Button>
-          
-          {categorias.map(categoria =>
-            <CategoriaItem categoria={categoria} />
+          {modelos.map(modelo =>
+            <ModeloItem modelo={modelo} />
           )}
           
         </section>
