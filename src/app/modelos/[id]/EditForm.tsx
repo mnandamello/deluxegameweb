@@ -17,7 +17,6 @@ const initialState = {
 
 export function EditForm(modelo: Modelo) {
     const [state, formAction] = useFormState(update, initialState)
-    const [nome, setNome] = useState(modelo.nome)
 
     return (
         <form action={formAction} className="flex flex-col gap-3 m-6 bg-slate-900 rounded p-6 min-w-[500px]">
@@ -27,8 +26,7 @@ export function EditForm(modelo: Modelo) {
                 key="nome"
                 label="Nome"
                 name="nome"
-                value={nome}
-                onValueChange={setNome}
+                defaultValue={modelo.nome}
                 variant="bordered"
                 labelPlacement={"outside"}
                 isInvalid={state?.message != ''}
@@ -40,6 +38,7 @@ export function EditForm(modelo: Modelo) {
                 label="Ícone"
                 name="icone"
                 variant="bordered"
+                defaultInputValue={modelo.icone}
                 labelPlacement={"outside"}
                 placeholder="procurar ícone"
             >

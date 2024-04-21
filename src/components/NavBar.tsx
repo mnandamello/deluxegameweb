@@ -2,15 +2,16 @@ import Link from "next/link";
 import Image from 'next/image'
 
 interface NavBarProps {
-    active: "estoque" | "modelos" | "filiais"
+    active: "estoque" | "movimentacoes" | "modelos" | "filiais" 
 }
 
 export default function NavBar(props: NavBarProps) {
     const { active } = props
     const classActive = "border-pink-500 border-b-4 pb-2"
     const oi = active == "estoque" ? classActive: ""
-    const oi2 = active == "modelos" ? classActive: ""
-    const oi3 = active == "filiais" ? classActive: ""
+    const oi2 = active == "movimentacoes" ? classActive: ""
+    const oi3 = active == "modelos" ? classActive: ""
+    const oi4 = active == "filiais" ? classActive: ""
 
     return (
         <nav className="flex w-full justify-between items-center px-4 py-2">
@@ -23,8 +24,9 @@ export default function NavBar(props: NavBarProps) {
             <div className="mr-50">
                 <ul className="flex gap-24">
                     <li className={`text-c50 text-[23px] ${oi}`}><Link href="/"><span className="text-customPink font-semibold">E</span>stoque</Link></li>
-                    <li className={`text-c50 text-[23px] ${oi2}`}><Link href="/modelos"><span className="text-customPink font-semibold">M</span>odelos VG</Link></li>
-                    <li className={`text-c50 text-[23px] ${oi3}`}><Link href="/filiais"><span className="text-customPink font-semibold">F</span>iliais</Link></li>
+                    <li className={`text-c50 text-[23px] ${oi2}`}><Link href="/movimentacoes"><span className="text-customPink font-semibold">M</span>ovimentações</Link></li>
+                    <li className={`text-c50 text-[23px] ${oi3}`}><Link href="/modelos"><span className="text-customPink font-semibold">M</span>odelos VG</Link></li>
+                    <li className={`text-c50 text-[23px] ${oi4}`}><Link href="/filiais"><span className="text-customPink font-semibold">F</span>iliais</Link></li>
                 </ul>
             </div>
             <div className="w-14 h-14 rounded-full overflow-hidden">

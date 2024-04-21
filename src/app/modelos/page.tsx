@@ -36,7 +36,7 @@ export default async function Modelos() {
           <div className="flex justify-between">
             <h2 className="text-2xl font-bold">Modelos cadastrados</h2>
             <Link href="/modelos/new">
-            <Button color="primary" startContent={<Plus/>}>nova categoria</Button>
+            <Button color="primary" startContent={<Plus/>}>novo modelo</Button>
             </Link>
           </div>
           
