@@ -4,7 +4,7 @@ import { create } from "@/app/actions/movimentacoes/create";
 import { ModeloSelect } from "@/components/ModeloSelect";
 import { SubmitButton } from "@/components/SubmitButton";
 import { Button } from "@nextui-org/button";
-import { Input, Radio, RadioGroup, Select, SelectItem } from "@nextui-org/react";
+import { Input, Radio, RadioGroup } from "@nextui-org/react";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { useFormState } from "react-dom";
@@ -45,9 +45,15 @@ export function Form(props: { modelos: Array<Modelo> }) {
                 variant="bordered"
                 labelPlacement={"outside"}
                 isRequired={true}
+                startContent={
+                    <div className="pointer-events-none flex items-center">
+                        <span className="text-default-400 text-small">UNI</span>
+                    </div>
+                }
                 isInvalid={state?.message_quantidade != ''}
                 errorMessage={state?.message_quantidade}
             />
+
 
             <Input
                 type="number"

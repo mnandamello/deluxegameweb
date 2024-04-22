@@ -36,7 +36,6 @@ export function MovimentacaoItem({ movimentacao }: MovimentacaoItemProps){
             </div>
             <div className="flex gap-2 items-center">
                 <div className="flex gap-2 items-center">
-                    {movimentacao.quantidade.toFixed(2)}
                     R$ {movimentacao.valor.toFixed(2)}
                     {movimentacao.tipo === "ENTRADA" ? 
                         <ArrowDown className="text-green-500" size={18} /> : 

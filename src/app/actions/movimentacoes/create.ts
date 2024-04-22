@@ -8,14 +8,14 @@ export async function create(prevState: any, formData: FormData){
     const date = formData.get("data");
     const partes = String(date).split('-');
     formData.set("data", partes[2] + '/' + partes[1] + '/' + partes[0]);
-
+    
     const data = {
         descricao: formData.get("descricao"),
         quantidade: formData.get("quantidade"),
         valor: formData.get("valor"),
         tipo: formData.get("tipo"),
-        modelo: {
-            id: formData.get("modelo")
+        categoria: {
+            id: formData.get("categoria")
         },
         data: formData.get("data"),
     }
@@ -44,5 +44,5 @@ export async function create(prevState: any, formData: FormData){
             message_data: messages.find( (m: any) => m.campo == "data")?.mensagem || '',
         }
     }
-
+    
 }
