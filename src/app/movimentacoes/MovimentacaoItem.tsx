@@ -1,11 +1,12 @@
 "use client"
 
 import DropDownActions from "@/components/DropDownActions";
-import { Icone } from "@/components/Icone";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { destroy } from "../actions/movimentacoes/destroy";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { Icone } from "@/components/Icone";
+
 
 
 interface MovimentacaoItemProps{
@@ -27,20 +28,27 @@ export function MovimentacaoItem({ movimentacao }: MovimentacaoItemProps){
 
     }
 
+
     return (
         <div className="flex justify-between p-2 hover:bg-slate-600 rounded cursor-pointer">
             <div className="flex gap-2 items-center">
-                <Icone nome={movimentacao.modelo.icone} />
+                <Icone nome={movimentacao.modelo.icone}/>
                 <span>{movimentacao.data}</span>
                 <span>{movimentacao.descricao}</span>
             </div>
+
+            <div className="flex gap-2 items-center">
+                
+            </div>
             <div className="flex gap-2 items-center">
                 <div className="flex gap-2 items-center">
+                    
                     R$ {movimentacao.valor.toFixed(2)}
                     {movimentacao.tipo === "ENTRADA" ? 
                         <ArrowDown className="text-green-500" size={18} /> : 
                         <ArrowUp className="text-red-500" size={18} />
                     }
+                    <span>Uni: {movimentacao.quantidade} </span>
                 </div>
                 <DropDownActions 
                     onDelete={handleDelete} 

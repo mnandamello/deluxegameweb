@@ -1,4 +1,5 @@
-import { Swords, Gamepad, Joystick,Sword,Dices ,Laptop,Headset,Tv} from 'lucide-react'
+import { Swords, Gamepad, Joystick,Sword,Dices ,Laptop,Headset,Tv} from "lucide-react";
+
 
 export const icones = [
     {nome: "swords", icone: <Swords size={44} style={{color: '#F2186E'}} />},

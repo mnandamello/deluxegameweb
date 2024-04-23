@@ -1,4 +1,5 @@
-import { icones } from '@/app/utils/Icones'
+import { icones } from "@/app/utils/Icones"
+
 
 interface IconeProps {
     nome: string

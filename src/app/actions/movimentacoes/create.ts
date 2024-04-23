@@ -14,8 +14,8 @@ export async function create(prevState: any, formData: FormData){
         quantidade: formData.get("quantidade"),
         valor: formData.get("valor"),
         tipo: formData.get("tipo"),
-        categoria: {
-            id: formData.get("categoria")
+        modelo: {
+            id: formData.get("modelo")
         },
         data: formData.get("data"),
     }
